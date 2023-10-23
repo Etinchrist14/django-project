@@ -1,0 +1,19 @@
+{% load static %}
+
+<!-- <p class="click-me">Click me to open the modal</p> -->
+
+
+<dialog class="js-modal"  data-modal>
+    <!-- Content of the modal dialog goes here -->
+    <div class="d-flex justify-content-md-between" >  <h3 class="flex-grow-1">New post</h3>  <button  class="btn-close" aria-label="Close" data-close-modal></button> </div>
+    <hr>
+    <!-- js-post-text is added to the form class wigdet at form.py -->
+
+   <div class="w-full">
+    <textarea class="form-control js-post-text mb-4" rows="3" cols="40" placeholder="What's on your mind" data-post-url = "{% url 'new_post' %}"> </textarea>
+   </div>
+
+    <div class="d-grid js-submit mb-2"><button type="button" class="btn btn-primary mb-1">Make New Post</button></div>
+  
+    
+</dialog>
