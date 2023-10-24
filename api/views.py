@@ -43,7 +43,6 @@ def postCreate(request):
 
     return Response(serializer.data)
 
-
 @api_view(['PUT'])
 def postUpdate(request, pk):
     try:
@@ -52,9 +51,11 @@ def postUpdate(request, pk):
         return Response({'detail': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'PUT':
-        serializer = PostSerializer(post, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
+        updated_text = request.data.get('text', '')
+        if updated_text!='':
+            post.text = updated_text
+            post.save()
+            serializer = PostSerializer(post)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

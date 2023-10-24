@@ -195,7 +195,7 @@ var csrftoken = getCookie('csrftoken');
         
     
         fetch(url, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken'), // Ensure you have a function to get the CSRF token
